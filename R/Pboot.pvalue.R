@@ -12,14 +12,14 @@ GMYC.pvalue <- function(empirical.tree, Result.n.species, Bootstrap_number_speci
 
   p.value <- length(which(Bootstrap_number_species[,1] <= Result.n.species[1,1]*perc.treshold*Penalty))/length(Bootstrap_number_species[,1])
 
-  graphic.data <- data.frame(matrix(NA,nboot+1,1))
-  colnames(graphic.data) <- "P2C2M_GMYC.results"
+  P2C2M_GMYC.results <- list()
 
-  graphic.data[1,1] <- Result.n.species[1,1]*0.1*Penalty
-  graphic.data[2:(nboot+1),1] <- Bootstrap_number_species[,1]
+  P2C2M_GMYC.results[[1]] <- p.value
+  P2C2M_GMYC.results[[2]] <- Result.n.species[1,1]*perc.treshold*Penalty
+  P2C2M_GMYC.results[[3]] <- Bootstrap_number_species[,1]
 
-  P2C2M_GMYC.result <- list(p.value,graphic.data)
+  names(P2C2M_GMYC.results) <- c("p.value","Threshold","Null.distribution")
 
-  return(P2C2M_GMYC.result)
+  return(P2C2M_GMYC.results)
 
 }

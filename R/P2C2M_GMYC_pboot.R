@@ -198,7 +198,7 @@ P2C2M_GMYC.pboot <- function(tree.input,
 
   P2C2M_GMYC.res <- GMYC.pvalue(empirical.tree, Result.n.species, Bootstrap_n_species, nboot, nspecies.penalty, perc.treshold)
 
-  p_value <- P2C2M_GMYC.res[[1]]
+  p_value <- P2C2M_GMYC.res$p.value
 
   if (p_value <= 0.05){
     print("P2C2M_GMYC result:")
@@ -208,7 +208,6 @@ P2C2M_GMYC.pboot <- function(tree.input,
     print(noquote(paste0("Your data does not violate GMYC model: p-value = ", p_value)))
   }
 
-  P2C2M_GMYC.plot <- P2C2M_GMYC.res[[2]]
-  assign("P2C2M_GMYC.plot.info", P2C2M_GMYC.res[[2]], envir = .GlobalEnv)
+  assign("P2C2M_GMYC.results", P2C2M_GMYC.res, envir = .GlobalEnv)
 }
 
