@@ -2,7 +2,9 @@ P2C2M_GMYC.pboot <- function(tree.input,
                              tree.format,
                              seq,
                              nsim=NULL,
-                             nboot=NULL){
+                             nboot=NULL,
+                             nspecies.penalty=NULL,
+                             perc.treshold=NULL){
 
   list.of.packages <- c("ape",
                         "phytools",
@@ -52,12 +54,21 @@ P2C2M_GMYC.pboot <- function(tree.input,
 
  # path.files <- getwd()
 
+
   if(is.null(nsim)){
     nsim <- 100
   }
 
   if(is.null(nboot)){
     nboot <- 100
+  }
+
+  if(is.null(nspecies.penalty)){
+    nspecies.penalty <- 0.5
+  }
+
+  if(is.null(perc.treshold)){
+    perc.treshold <- 0.1
   }
 
   Result.n.species <- data.frame(matrix(NA,nsim+1,1))
@@ -185,7 +196,7 @@ P2C2M_GMYC.pboot <- function(tree.input,
 
   Bootstrap_n_species <- Bootstrap.n.species(Final.result, nboot, nsim)
 
-  P2C2M_GMYC.res <- GMYC.pvalue(empirical.tree, Result.n.species, Bootstrap_n_species, nboot)
+  P2C2M_GMYC.res <- GMYC.pvalue(empirical.tree, Result.n.species, Bootstrap_n_species, nboot, nspecies.penalty, perc.treshold)
 
   p_value <- P2C2M_GMYC.res[[1]]
 
