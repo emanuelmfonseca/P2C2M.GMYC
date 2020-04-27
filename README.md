@@ -1,9 +1,6 @@
-![Logo](images/P2C2M.GMYC.logo.png)
-
-
 # P2C2M.GMYC
 
-**under development**
+\*\* **under development** \*\*
 
 An r-package for identifying model violations under the Generalized Mixed Yule Coalescent model
 
