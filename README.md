@@ -1,4 +1,4 @@
-![Logo](images/P2C2M.GMYC.logo.png)
+![Logo](images/P2C2M.GMYC.logo.png | | width=50)
 
 
 # P2C2M.GMYC
