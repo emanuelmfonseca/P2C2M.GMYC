@@ -15,15 +15,15 @@ devtools::install_github("emanuelmfonseca/P2C2M.GMYC")
 
 P2C2M automatically installs all the dependencies, but if you get errors, try to install them individually. Here is the list of all required packages:
 
-**install.packages(ape)**\n
-**install.packages(pegas)**\n
-**install.packages(phangorn)**\n
-**install.packages(phyclust)**\n
-**install.packages(pegas)**\n
-**install.packages(TreeSim)**\n
-**install.packages("splits", repos="http://R-Forge.R-project.org", type="source")**\n
-**install\_github("liamrevell/phytools")**\n
-**install\_github("lliu1871/phybase")**\n
+**install.packages(ape)**  
+**install.packages(pegas)**  
+**install.packages(phangorn)**  
+**install.packages(phyclust)**  
+**install.packages(pegas)**  
+**install.packages(TreeSim)**  
+**install.packages("splits", repos="http://R-Forge.R-project.org", type="source")**  
+**install\_github("liamrevell/phytools")**  
+**install\_github("lliu1871/phybase")**  
 
 
 
