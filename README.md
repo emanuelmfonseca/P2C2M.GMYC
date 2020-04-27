@@ -39,7 +39,7 @@ P2C2M_GMYC.pboot(tree.input=system.file("extdata", "Lygodactylus.tre", package="
                  seq=system.file("extdata", "Lygodactylus.fas", package="P2C2M.GMYC"))
 ```
 
-![alt text here](images/P2C2M.GMYC.result_Lygodactylus)
+![Figure1](images/P2C2M.GMYC.result_Lygodactylus.png)
 
 Results can be accessed in P2C2M_GMYC.results object.
 
@@ -47,7 +47,7 @@ Results can be accessed in P2C2M_GMYC.results object.
 P2C2M_GMYC.results
 ```
 
-![alt text here](images/P2C2M.GMYC.result2_Lygodactylus)
+![Figure2](images/P2C2M.GMYC.result2_Lygodactylus.png)
 
 
 
