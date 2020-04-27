@@ -2,7 +2,7 @@
 
 \*\* **under development** \*\*
 
-An r-package for identifying model violations under the Generalized Mixed Yule Coalescent model
+An r-package for identifying model violations under the Generalized Mixed Yule Coalescent (GMYC) model
 
 ## Installation:
 
