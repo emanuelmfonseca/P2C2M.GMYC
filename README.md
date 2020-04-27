@@ -1,3 +1,6 @@
+![Logo](images/P2C2M.GMYC.logo.png)
+
+
 # P2C2M.GMYC
 
 **under development**
