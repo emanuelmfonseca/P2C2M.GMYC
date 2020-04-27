@@ -1,4 +1,4 @@
-![Logo](images/P2C2M.GMYC.logo.png =250x250)
+![Logo](images/P2C2M.GMYC.logo.png)
 
 
 # P2C2M.GMYC
