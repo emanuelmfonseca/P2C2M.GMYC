@@ -49,6 +49,10 @@ P2C2M_GMYC.results
 
 ![Figure2](images/P2C2M.GMYC.result2_Lygodactylus.png)
 
+**Reference**
+
+ Lanna, F.M., Werneck, F.P., Gehara, M., Fonseca, E.M., Colli, G.R., Sites-Jr., J.W., Rodrigues, M.T., and Garda, A.A. 2018. The evolutionary history of Lygodactylus lizards in the South American open diagonal. Molecular Phylogenetics and Evolution, 127: 638–645. 10.1016/j.ympev.2018.06.010.
+
 
 
 
