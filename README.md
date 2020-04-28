@@ -23,7 +23,7 @@ P2C2M automatically installs all the dependencies, but if you get errors, try to
 **install.packages("TreeSim")**  
 **install.packages("splits", repos="http://R-Forge.R-project.org", type="source")**  
 **install\_github("liamrevell/phytools")**  
-**install\_github("lliu1871/phybase")**  
+**install_github("bomeara/phybase")**  
 
 ## Example:
 
