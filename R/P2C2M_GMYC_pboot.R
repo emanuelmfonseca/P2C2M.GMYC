@@ -7,14 +7,11 @@ P2C2M_GMYC.pboot <- function(tree.input,
                              perc.treshold=NULL){
 
   list.of.packages <- c("ape",
-                        "phytools",
-                        "phybase",
                         "TreeSim",
                         "pegas",
                         "phyclust",
                         "phangorn",
-                        "devtools",
-                        "ggplot2")
+                        "devtools")
 
   new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
   if(length(new.packages)) install.packages(new.packages)
