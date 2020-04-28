@@ -25,7 +25,7 @@ P2C2M_GMYC.pboot <- function(tree.input,
   }
 
     if(!"phybase" %in% installed.packages()){
-   install_github("lliu1871/phybase")
+   devtools::install_github("bomeara/phybase")
   }
 
   suppressMessages(library(ape))
