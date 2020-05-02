@@ -73,7 +73,7 @@ P2C2M_GMYC.PPS <- function(tree.input,
 
   empirical.tree <- read.nexus(tree.input)
   empirical.tree <- empirical.tree[-c(1:round((length(empirical.tree)*0.1)))]
-  empirical.tree <- empirical.tree[sample(1:9000,n.tree)]
+  empirical.tree <- empirical.tree[sample(1:9000,ntree)]
 
   n.tips <- length(empirical.tree[[1]]$tip.label)
 
