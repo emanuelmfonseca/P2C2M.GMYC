@@ -187,7 +187,7 @@ P2C2M_GMYC.pboot <- function(tree.input,
     print("P2C2M_GMYC result:")
     print(noquote(paste0("Your data does not violate GMYC model: p-value = ", p_value)))
   } else {
-    print("P2C2M_GMYC result:")
+    print(noquote("P2C2M_GMYC result:"))
     print(noquote(paste0("Your data does not violate GMYC model: p-value = ", p_value)))
   }
 
