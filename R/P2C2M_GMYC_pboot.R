@@ -53,10 +53,6 @@ P2C2M_GMYC.pboot <- function(tree.input,
     nboot <- 100
   }
 
-  if(is.null(nspecies.penalty)){
-    nspecies.penalty <- 0.5
-  }
-
   if(is.null(perc.treshold)){
     perc.treshold <- 0.1
   }
