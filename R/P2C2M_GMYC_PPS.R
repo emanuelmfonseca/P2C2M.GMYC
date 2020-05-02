@@ -112,7 +112,7 @@ P2C2M_GMYC.PPS <- function(tree.input,
 
   Result.n.species[1,1] <- N.species
 
-  Coal_result <- coaslescent_tree(results, N.species, seq)
+  Coal_result <- coaslescent_tree.PPS(results, N.species, seq)
 
   Species_result <- cbind(Species_result, Coal_result)
   Species_result[,3][is.na(Species_result[,3])] <- 0
