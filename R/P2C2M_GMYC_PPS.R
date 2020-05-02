@@ -2,6 +2,7 @@ P2C2M_GMYC.PPS <- function(tree.input,
                              seq,
                              nsim=NULL,
                              nboot=NULL,
+                             ntree = NULL,
                              mcmc = 100000,
                              burnin = 90000,
                              thinning = 100,
@@ -58,6 +59,10 @@ P2C2M_GMYC.PPS <- function(tree.input,
     nboot <- 100
   }
 
+  if(is.null(ntree)){
+    ntree <- 100
+  }
+
   seq_length <- nchar(readLines(seq)[2])
 
   Result.n.species <- data.frame(matrix(NA,nsim+1,1))
@@ -68,7 +73,7 @@ P2C2M_GMYC.PPS <- function(tree.input,
 
   empirical.tree <- read.nexus(tree.input)
   empirical.tree <- empirical.tree[-c(1:round((length(empirical.tree)*0.1)))]
-  empirical.tree <- empirical.tree[sample(1:9000,100)]
+  empirical.tree <- empirical.tree[sample(1:9000,n.tree)]
 
   n.tips <- length(empirical.tree[[1]]$tip.label)
 
