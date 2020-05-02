@@ -3,7 +3,6 @@ P2C2M_GMYC.pboot <- function(tree.input,
                              seq,
                              nsim=NULL,
                              nboot=NULL,
-                             nspecies.penalty=NULL,
                              perc.treshold=NULL){
 
   list.of.packages <- c("ape",
@@ -38,18 +37,12 @@ P2C2M_GMYC.pboot <- function(tree.input,
   suppressMessages(library(phangorn))
   suppressMessages(library(ggplot2))
 
-  # scripts <- list.files("/Users/masierodafonseca.1/Desktop/P2C2M.GMYC")
-  # for (x in 1:length(scripts)){
-  #  source(paste0("/Users/masierodafonseca.1/Desktop/P2C2M.GMYC/", scripts[x]))
-  # }
 
   quiet <- function(x) {
     sink(tempfile())
     on.exit(sink())
     invisible(force(x))
   }
-
- # path.files <- getwd()
 
 
   if(is.null(nsim)){
@@ -93,8 +86,6 @@ P2C2M_GMYC.pboot <- function(tree.input,
   } else {
     stop("Sequence input must be a sequencial fasta file")
   }
-
- #setwd(path.files)
 
   edge <- which(empirical.tree$edge.length < 0.0000001)
   empirical.tree$edge.length[edge] <- 0.001
@@ -152,7 +143,6 @@ P2C2M_GMYC.pboot <- function(tree.input,
     Simulated_tree <- read.tree(text = Simulated_trees[[i]])
     tree_UPGMA <- UPGMA.trees(Simulated_tree, seq_length, i)
     UPGMA_trees <- c(UPGMA_trees, write.tree(tree_UPGMA))
-    #writeLines(UPGMA_trees, paste0(path.files, "/UPGMA_trees.txt"))
 
     setTxtProgressBar(progress, i)
 
@@ -207,4 +197,3 @@ P2C2M_GMYC.pboot <- function(tree.input,
 
   assign("P2C2M_GMYC.results", P2C2M_GMYC.res, envir = .GlobalEnv)
 }
-
