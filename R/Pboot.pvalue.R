@@ -1,4 +1,4 @@
-GMYC.pvalue <- function(Result.n.species, Bootstrap_number_species,perc.treshold){
+GMYC.pvalue <- function(Result.n.species, Bootstrap_number_species, perc.treshold){
 
   p.value <- length(which(Bootstrap_number_species[,1] <= Result.n.species[1,1]*perc.treshold))/length(Bootstrap_number_species[,1])
 

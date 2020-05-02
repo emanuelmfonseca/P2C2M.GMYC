@@ -179,7 +179,7 @@ P2C2M_GMYC.pboot <- function(tree.input,
 
   Bootstrap_n_species <- Bootstrap.n.species(Final.result, nboot, nsim)
 
-  P2C2M_GMYC.res <- GMYC.pvalue(empirical.tree, Result.n.species, Bootstrap_n_species, nboot, nspecies.penalty, perc.treshold)
+  P2C2M_GMYC.res <- GMYC.pvalue(Result.n.species, Bootstrap_n_species, perc.treshold)
 
   p_value <- P2C2M_GMYC.res$p.value
 
