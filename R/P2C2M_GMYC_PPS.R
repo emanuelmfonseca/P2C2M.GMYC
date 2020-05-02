@@ -1,4 +1,4 @@
-P2C2M_GMYC.pboot <- function(tree.input,
+P2C2M_GMYC.PPS <- function(tree.input,
                              seq,
                              nsim=NULL,
                              nboot=NULL,
