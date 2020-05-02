@@ -184,7 +184,7 @@ P2C2M_GMYC.pboot <- function(tree.input,
   p_value <- P2C2M_GMYC.res$p.value
 
   if (p_value <= 0.05){
-    print("P2C2M_GMYC result:")
+    print(noquote("P2C2M_GMYC result:"))
     print(noquote(paste0("Your data does not violate GMYC model: p-value = ", p_value)))
   } else {
     print(noquote("P2C2M_GMYC result:"))
