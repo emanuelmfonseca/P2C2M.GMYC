@@ -1,4 +1,4 @@
-Simulated.n.species.Pboot <- function(RAxML.Trees, i){
+Simulated.n.species.PPS <- function(RAxML.Trees, i){
 
   Simulated_tree <- read.tree(text = RAxML.Trees[[i]])
   Simulated_tree <- force.ultrametric(Simulated_tree, method="nnls")
@@ -8,14 +8,14 @@ Simulated.n.species.Pboot <- function(RAxML.Trees, i){
   Simulated_tree <- force.ultrametric(Simulated_tree, method="nnls")
   Simulated_tree$edge.length <- Simulated_tree$edge.length/max(nodeHeights(Simulated_tree)[,2])
 
-  GMYC.simulated.tree<-gmyc(Simulated_tree, method="single",quiet=T)
-  GMYC.result.simulation <- capture.output(summary(GMYC.simulated.tree))
+  n.tips <- length(Simulated_tree$tip.label)
 
-  if(!grepl("n.s.", GMYC.result.simulation[7])){
-    N.species <- as.numeric(sub("	.+	", "", GMYC.result.simulation[12]))
-  } else {
-    N.species <- 1
-  }
+  test <- bgmyc.singlephy(Simulated_tree, mcmc=100000, burnin=90000, thinning=100, py2=1.2, t1=1,t2=n.tips,start=c(1,1,30), scale=c(15,20,0.5))
+
+  results.probmat <- spec.probmat(test)
+  results.spec <- bgmyc.point(results.probmat, ppcutoff=0.5)
+
+  N.species <- length(results.spec)
 
   return(N.species)
 

@@ -1,4 +1,4 @@
-coaslescent_tree.Pboot <- function(GMYC.empirical.tree, N.species, seq){
+coaslescent_tree.PPS <- function(GMYC.empirical.tree, N.species, seq){
 
   Coal.result <- data.frame(matrix(NA, N.species, 1))
   colnames(Coal.result) <- "N.Species"
@@ -8,7 +8,7 @@ coaslescent_tree.Pboot <- function(GMYC.empirical.tree, N.species, seq){
     Coal.result[,1] <- nuc.div(fasta)
   } else {
 
-    GMYC.result <- spec.list(GMYC.empirical.tree)
+    GMYC.result <- GMYC.empirical.tree
 
     accessions <- list()
     number = 0

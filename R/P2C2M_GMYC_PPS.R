@@ -3,6 +3,7 @@ P2C2M_GMYC.PPS <- function(tree.input,
                              nsim=NULL,
                              nboot=NULL,
                              ntree = NULL,
+                             perc.treshold = 0.1,
                              mcmc = 100000,
                              burnin = 90000,
                              thinning = 100,
@@ -13,7 +14,8 @@ P2C2M_GMYC.PPS <- function(tree.input,
                              t1 = 2,
                              t2 = 66,
                              scale = c(20, 10, 5),
-                             start = c(1, 0.5, 50)){
+                             start = c(1, 0.5, 50),
+                             ppcutoff= 0.5){
 
   list.of.packages <- c("ape",
                         "TreeSim",
@@ -106,13 +108,6 @@ P2C2M_GMYC.PPS <- function(tree.input,
   Species_result[,1] <- 1:length(unique(results[,1]))
   Species_result[,2] <- table(results[,1])
 
-  print(noquote("Analysis progress:"))
-
-  print(noquote("1/5 - Running GMYC for the empirical dataset"))
-  progress <- txtProgressBar(min = 0, max = 100, style = 3)
-  setTxtProgressBar(progress,100)
-  close(progress)
-
   N.species <- length(Species_result[,1])
 
   Result.n.species[1,1] <- N.species
@@ -131,7 +126,8 @@ P2C2M_GMYC.PPS <- function(tree.input,
       progress <- txtProgressBar(min = 0, max = nsim, style = 3)
     }
 
-    Yule_tree <- Yule.tree(Species_result, empirical.tree)
+    empirical.Tree <- empirical.tree[[i]]
+    Yule_tree <- Yule.tree(Species_result, empirical.Tree)
     GMYC_simulated.tree <- GMYC.simulated.tree(Yule_tree, Species_result)
     Simulated_trees <- c(Simulated_trees, write.tree(GMYC_simulated.tree))
 
@@ -142,30 +138,18 @@ P2C2M_GMYC.PPS <- function(tree.input,
     }
   }
 
-  write.table(Simulated_trees, "Simulated.trees.txt", col.names = F, row.names = F, quote = F)
-
-  Simulated_trees <- readLines(paste0(path.files,"/Simulated.trees.txt"))
 
   for (i in 1:nsim){
 
     if (i == 1){
-      print(noquote("3/5 - Estimating UPGMA gene trees"))
+      print(noquote("3/5 - Estimating UPGMA trees"))
       progress <- txtProgressBar(min = 0, max = nsim, style = 3)
-      RAxML_trees <- character()
+      UPGMA_trees <- character()
     }
 
     Simulated_tree <- read.tree(text = Simulated_trees[[i]])
-
-    RAxML.trees(Simulated_tree, seq.length, path.files, i)
-
-    Best.tree <- read.tree("RAxML_bestTree.Output_RAxML")
-    RAxML_trees <- c(RAxML_trees, write.tree(Best.tree))
-    writeLines(RAxML_trees, paste0(path.files, "/RAxML_trees.txt"))
-
-    if (i == nsim){
-      setwd(path.files)
-      unlink("RAxML.trees", recursive = TRUE)
-    }
+    tree_UPGMA <- UPGMA.trees(Simulated_tree, seq_length, i)
+    UPGMA_trees <- c(UPGMA_trees, write.tree(tree_UPGMA))
 
     setTxtProgressBar(progress, i)
 
@@ -173,21 +157,8 @@ P2C2M_GMYC.PPS <- function(tree.input,
       close(progress)
     }}
 
-  RAxML_trees <- readLines(paste0(path.files,"/RAxML_trees.txt"))
-
   for (i in 1:nsim){
-
-    if (i == 1){
-      print(noquote("4/5 - Running GMYC for the simulated datasets"))
-      progress <- txtProgressBar(min = 0, max = nsim, style = 3)
-    }
-
-    Result.n.species[i+1,1] <- quiet(Simulated.n.species(RAxML_trees, i))
-    setTxtProgressBar(progress, i)
-
-    if (i ==nsim){
-      close(progress)
-    }
+    Result.n.species[i+1,1] <- Simulated.n.species.PPS(UPGMA_trees, i)
   }
 
   for (i in 1:nsim){
@@ -208,14 +179,21 @@ P2C2M_GMYC.PPS <- function(tree.input,
 
   Bootstrap_n.species <- Bootstrap.n.species(Final.result, nboot, nsim)
 
-  pvalue <- GMYC.pvalue(empirical.tree, Result.n.species, Bootstrap_n.species)
+  P2C2M_GMYC.res <- GMYC.pvalue(Result.n.species, Bootstrap_n.species, perc.treshold)
 
-  if (pvalue <= 0.05){
-    noquote(sprintf("P2C2M_GMYC result:"))
-    noquote(sprintf("Your data violates GMYC model: p-value = %.4f", pvalue))
+  p_value <- P2C2M_GMYC.res$p.value
+
+  if (p_value <= 0.05){
+    print(noquote("P2C2M_GMYC result:"))
+    print(noquote(paste0("Your data does not violate GMYC model: p-value = ", p_value)))
+    print(noquote("Significance: 0.05"))
   } else {
     print(noquote("P2C2M_GMYC result:"))
-    noquote(sprintf("Your data does not violate GMYC model: p-value = %.4f", pvalue))
+    print(noquote(paste0("Your data does not violate GMYC model: p-value = ", p_value)))
+    print(noquote("Significance: 0.05"))
   }
+
+  assign("P2C2M_GMYC.results", P2C2M_GMYC.res, envir = .GlobalEnv)
+
 }
 

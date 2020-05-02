@@ -104,7 +104,7 @@ P2C2M_GMYC.pboot <- function(tree.input,
 
   Result.n.species[1,1] <- N.species
 
-  Coal_result <- coaslescent_tree(GMYC.empirical.tree, N.species, seq)
+  Coal_result <- coaslescent_tree.Pboot(GMYC.empirical.tree, N.species, seq)
 
   Species_result <- cbind(Species_result, Coal_result)
 
@@ -153,7 +153,7 @@ P2C2M_GMYC.pboot <- function(tree.input,
       progress <- txtProgressBar(min = 0, max = nsim, style = 3)
     }
 
-    Result.n.species[i+1,1] <- quiet(Simulated.n.species(UPGMA_trees, i))
+    Result.n.species[i+1,1] <- quiet(Simulated.n.species.Pboot(UPGMA_trees, i))
     setTxtProgressBar(progress, i)
 
     if (i ==nsim){
@@ -194,4 +194,5 @@ P2C2M_GMYC.pboot <- function(tree.input,
   }
 
   assign("P2C2M_GMYC.results", P2C2M_GMYC.res, envir = .GlobalEnv)
+
 }
