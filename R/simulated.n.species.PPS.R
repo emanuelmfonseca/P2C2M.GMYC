@@ -1,4 +1,4 @@
-Simulated.n.species.PPS <- function(RAxML.Trees, i){
+Simulated.n.species.PPS <- function(RAxML.Trees, i, mcmc, burnin, thinning, py2, t1, t2, start, scale){
 
   Simulated_tree <- read.tree(text = RAxML.Trees[[i]])
   Simulated_tree <- force.ultrametric(Simulated_tree, method="nnls")
@@ -10,7 +10,7 @@ Simulated.n.species.PPS <- function(RAxML.Trees, i){
 
   n.tips <- length(Simulated_tree$tip.label)
 
-  test <- bgmyc.singlephy(Simulated_tree, mcmc=100000, burnin=90000, thinning=100, py2=1.2, t1=1,t2=n.tips,start=c(1,1,30), scale=c(15,20,0.5))
+  test <- bgmyc.singlephy(Simulated_tree, mcmc=mcmc, burnin=burnin, thinning=thinning, py2=py2, t1=t1,t2=t2,start=start, scale=scale)
 
   results.probmat <- spec.probmat(test)
   results.spec <- bgmyc.point(results.probmat, ppcutoff=0.5)

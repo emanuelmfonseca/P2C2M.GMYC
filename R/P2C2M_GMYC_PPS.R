@@ -85,7 +85,7 @@ P2C2M_GMYC.PPS <- function(tree.input,
 
   setwd(path.files)
 
-  bGMYC.results <- bgmyc.multiphylo(empirical.tree, mcmc=100000, burnin=90000, thinning=100, py2=1.2, t1=1,t2=n.tips,start=c(1,1,30), scale=c(15,20,0.5))
+  bGMYC.results <- bgmyc.multiphylo(empirical.tree, mcmc=mcmc, burnin=burnin, thinning=thinning, py2=py2, t1=t1,t2=t2,start=start, scale=scale)
 
   results.probmat <- spec.probmat(bGMYC.results)
   results.spec <- bgmyc.point(results.probmat, ppcutoff=0.5)
@@ -156,7 +156,7 @@ P2C2M_GMYC.PPS <- function(tree.input,
     }}
 
   for (i in 1:nsim){
-    Result.n.species[i+1,1] <- Simulated.n.species.PPS(UPGMA_trees, i)
+    Result.n.species[i+1,1] <- Simulated.n.species.PPS(UPGMA_trees, i, mcmc, burnin, thinning, py2, t1, t2, start, scale)
   }
 
   for (i in 1:nsim){
