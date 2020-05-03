@@ -51,7 +51,7 @@ P2C2M_GMYC.PPS <- function(tree.input,
 
   params <- c("nsim", "nboot", "ntree", "perc.treshold", "mcmc", "burnin", "thinning", "ppcutoff", "py1", "py2", "pc1", "pc2", "t1", "scale", "start")
 
-  params.default <- c("100", "100", "0.1", "100000", "90000", '100', "100", "0.5", "0", '2', "0", "2", "2", "c(20, 10, 5)", "c(1, 0.5, 50)")
+  params.default <- c("100", "100", "100", "0.1", "100000", "90000", '100', "0.5", "0", '2', "0", "2", "2", "c(20, 10, 5)", "c(1, 0.5, 50)")
 
 
   for (x in 1:length(params)){
