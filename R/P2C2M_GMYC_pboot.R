@@ -23,27 +23,21 @@ P2C2M_GMYC.pboot <- function(tree.input,
     install_github("liamrevell/phytools")
   }
 
-    if(!"phybase" %in% installed.packages()){
-   devtools::install_github("bomeara/phybase")
-  }
-
   suppressMessages(library(ape))
-  suppressMessages(library(splits))
-  suppressMessages(library(phytools))
-  suppressMessages(library(phybase))
   suppressMessages(library(TreeSim))
   suppressMessages(library(pegas))
+  #suppressMessages(library(phybase))
   suppressMessages(library(phyclust))
+  suppressMessages(library(pegas))
   suppressMessages(library(phangorn))
-  suppressMessages(library(ggplot2))
-
+  suppressMessages(library(splits))
+  suppressMessages(library(phytools))
 
   quiet <- function(x) {
     sink(tempfile())
     on.exit(sink())
     invisible(force(x))
   }
-
 
   if(is.null(nsim)){
     nsim <- 100

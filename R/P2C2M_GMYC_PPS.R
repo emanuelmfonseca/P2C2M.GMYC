@@ -29,17 +29,21 @@ P2C2M_GMYC.PPS <- function(tree.input,
 
 
   if(!"phytools" %in% installed.packages()){
-    install_github("liamrevell/phytools")
+    devtools::install_github("liamrevell/phytools")
+  }
+
+  if(!"bGMYC" %in% installed.packages()){
+    install.packages(system.file("bGMYC_1.0.2.tar", package="P2C2M.GMYC"), repos = NULL, type="source")
   }
 
   suppressMessages(library(ape))
-  suppressMessages(library(bGMYC))
-  suppressMessages(library(phytools))
-  #suppressMessages(library(phybase))
   suppressMessages(library(TreeSim))
   suppressMessages(library(pegas))
+  #suppressMessages(library(phybase))
   suppressMessages(library(phyclust))
   suppressMessages(library(phangorn))
+  suppressMessages(library(phytools))
+  suppressMessages(library(bGMYC))
 
   quiet <- function(x) {
     sink(tempfile())
