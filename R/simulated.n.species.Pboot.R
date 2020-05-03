@@ -9,7 +9,7 @@ Simulated.n.species.Pboot <- function(RAxML.Trees, i){
   Simulated_tree$edge.length <- Simulated_tree$edge.length/max(nodeHeights(Simulated_tree)[,2])
 
   GMYC.simulated.tree<-gmyc(Simulated_tree, method="single",quiet=T)
-  GMYC.result.simulation <- capture.output(summary(GMYC.simulated.tree))
+  GMYC.result.simulation <- capture.output(summary.gmyc(GMYC.simulated.tree))
 
   if(!grepl("n.s.", GMYC.result.simulation[7])){
     N.species <- as.numeric(sub("	.+	", "", GMYC.result.simulation[12]))

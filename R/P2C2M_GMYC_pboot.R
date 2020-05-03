@@ -11,8 +11,7 @@ P2C2M_GMYC.pboot <- function(tree.input,
                         "phyclust",
                         "phangorn",
                         "devtools",
-                        "paran",
-                        "mormt")
+                        "paran")
 
   new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
   if(length(new.packages)) install.packages(new.packages)
@@ -85,7 +84,7 @@ P2C2M_GMYC.pboot <- function(tree.input,
   empirical.tree$edge.length<- empirical.tree$edge.length/max(nodeHeights(empirical.tree)[,2])
 
   GMYC.empirical.tree <- quiet(gmyc(empirical.tree, method="single", quiet = TRUE))
-  GMYC.result.empirical <- capture.output(summary(GMYC.empirical.tree))
+  GMYC.result.empirical <- capture.output(summary.gmyc(GMYC.empirical.tree))
 
   print(noquote("Analysis progress:"))
 
