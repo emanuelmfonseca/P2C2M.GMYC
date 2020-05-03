@@ -30,8 +30,9 @@ DETAILS
 }
 \examples{
 \dontrun{
-if(interactive()){
- #EXAMPLE1
+P2C2M_GMYC.pboot(tree.input=system.file("extdata", "Lygodactylus.tre", package="P2C2M.GMYC"),
+                 tree.format="nexus",
+                 seq=system.file("extdata", "Lygodactylus.fas", package="P2C2M.GMYC"))
  }
 }
 }

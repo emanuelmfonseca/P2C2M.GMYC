@@ -187,7 +187,7 @@ P2C2M_GMYC.PPS <- function(tree.input,
 
   if (p_value <= 0.05){
     print(noquote("P2C2M_GMYC result:"))
-    print(noquote(paste0("Your data does not violate GMYC model: p-value = ", p_value)))
+    print(noquote(paste0("Your data violates GMYC model: p-value = ", p_value)))
     print(noquote("Significance: 0.05"))
   } else {
     print(noquote("P2C2M_GMYC result:"))
