@@ -130,7 +130,7 @@ P2C2M_GMYC.PPS <- function(tree.input,
 
     empirical.Tree <- empirical.tree[[i]]
     Yule_tree <- Yule.tree(Species_result, empirical.Tree)
-    GMYC_simulated.tree <- GMYC.simulated.tree(Yule_tree, Species_result)
+    GMYC_simulated.tree <- GMYC.simulated.tree(Yule_tree, Species_result, n.tips)
     Simulated_trees <- c(Simulated_trees, write.tree(GMYC_simulated.tree))
 
     setTxtProgressBar(progress, i)
