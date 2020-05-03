@@ -33,7 +33,7 @@ P2C2M_GMYC.PPS <- function(tree.input,
   }
 
   if(!"bGMYC" %in% installed.packages()){
-    install.packages(system.file("bGMYC_1.0.2.tar", package="P2C2M.GMYC"), repos = NULL, type="source")
+    install.packages(system.file("package", "bGMYC_1.0.2.tar", package="P2C2M.GMYC"), repos = NULL, type="source")
   }
 
   suppressMessages(library(ape))
