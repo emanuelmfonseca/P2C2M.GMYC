@@ -16,12 +16,12 @@ P2C2M_GMYC.pboot <- function(tree.input,
   new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
   if(length(new.packages)) install.packages(new.packages)
 
-      if(!"splits" %in% installed.packages()){
-  install.packages("splits", repos="http://R-Forge.R-project.org", type="source")
-}
+  if(!"splits" %in% installed.packages()){
+    install.packages("splits", repos="http://R-Forge.R-project.org", type="source")
+  }
 
   if(!"phytools" %in% installed.packages()){
-    install_github("liamrevell/phytools")
+    devtools::install_github("liamrevell/phytools")
   }
 
   suppressMessages(library(ape))
@@ -123,7 +123,7 @@ P2C2M_GMYC.pboot <- function(tree.input,
     }
   }
 
-   for (i in 1:nsim){
+  for (i in 1:nsim){
 
     if (i == 1){
       print(noquote("3/5 - Estimating UPGMA trees"))
