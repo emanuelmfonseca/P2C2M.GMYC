@@ -83,6 +83,8 @@ P2C2M_GMYC.pboot <- function(tree.input,
   empirical.tree <- force.ultrametric(empirical.tree, method="nnls")
   empirical.tree$edge.length<- empirical.tree$edge.length/max(nodeHeights(empirical.tree)[,2])
 
+  n.tips <- length(empirical.tree$tip.label)
+
   GMYC.empirical.tree <- quiet(gmyc(empirical.tree, method="single", quiet = TRUE))
   GMYC.result.empirical <- capture.output(summary.gmyc(GMYC.empirical.tree))
 
