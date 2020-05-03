@@ -55,9 +55,9 @@ P2C2M_GMYC.PPS <- function(tree.input,
 
 
   for (x in 1:length(params)){
-    is.null(get(params[x]))
+    if(is.null(get(params[x]))){
     assign(params[x], eval(parse(text=params.default[x])))
-  }
+  }}
 
   seq_length <- nchar(readLines(seq)[2])
 
