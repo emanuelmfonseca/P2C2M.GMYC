@@ -11,7 +11,8 @@ P2C2M_GMYC.pboot <- function(tree.input,
                         "phyclust",
                         "phangorn",
                         "devtools",
-                        "paran")
+                        "paran",
+                        "mormt")
 
   new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
   if(length(new.packages)) install.packages(new.packages)
