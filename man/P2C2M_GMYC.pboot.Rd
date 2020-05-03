@@ -8,16 +8,16 @@
 }
 \arguments{
   \item{tree.input}{A file name which contains an ultrametric phylogenetic tree.}
-  
+
   \item{tree.format}{A character string specifying the format of the phylogenetic tree. Two choices are possible: "nexus" or "newick"}
-  
+
   \item{seq}{A file name which contains a sequential FASTA alignment}
-  
+
   \item{nsim}{Number of simulated trees, Default: 100 trees}
-  
+
   \item{nboot}{The size of the null distribution, Default: 100}
-  
-  \item{perc.treshold}{Percentage of the number of species recovered by the empirical dataset used to set the threshold to calculate the p-value, Default: 0.1 (10%)}
+
+  \item{perc.treshold}{Percentage of the number of species recovered by the empirical dataset used to set the threshold to calculate the p-value, Default: 0.1 (10\%)}
 }
 \value{
   A list containing the p-value, the threshold used to calculate the p-value, and the null distribution.
