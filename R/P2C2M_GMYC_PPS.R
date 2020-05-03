@@ -1,21 +1,21 @@
 P2C2M_GMYC.PPS <- function(tree.input,
-                             seq,
-                             nsim=NULL,
-                             nboot=NULL,
-                             ntree = NULL,
-                             perc.treshold = 0.1,
-                             mcmc = 100000,
-                             burnin = 90000,
-                             thinning = 100,
-                             py1 = 0,
-                             py2 = 2,
-                             pc1 = 0,
-                             pc2 = 2,
-                             t1 = 2,
-                             t2 = 66,
-                             scale = c(20, 10, 5),
-                             start = c(1, 0.5, 50),
-                             ppcutoff= 0.5){
+                           seq,
+                           nsim=NULL,
+                           nboot=NULL,
+                           ntree = NULL,
+                           perc.treshold = NULL,
+                           mcmc = NULL,
+                           burnin = NULL,
+                           thinning = NULL,
+                           py1 = NULL,
+                           py2 = NULL,
+                           pc1 = NULL,
+                           pc2 = NULL,
+                           t1 = NULL,
+                           t2 = NULL,
+                           scale = NULL,
+                           start = NULL,
+                           ppcutoff= NULL){
 
   list.of.packages <- c("ape",
                         "TreeSim",
@@ -32,14 +32,10 @@ P2C2M_GMYC.PPS <- function(tree.input,
     install_github("liamrevell/phytools")
   }
 
-  if(!"phybase" %in% installed.packages()){
-    devtools::install_github("bomeara/phybase")
-  }
-
   suppressMessages(library(ape))
   suppressMessages(library(bGMYC))
   suppressMessages(library(phytools))
-  suppressMessages(library(phybase))
+  #suppressMessages(library(phybase))
   suppressMessages(library(TreeSim))
   suppressMessages(library(pegas))
   suppressMessages(library(phyclust))
@@ -53,16 +49,14 @@ P2C2M_GMYC.PPS <- function(tree.input,
 
   path.files <- getwd()
 
-  if(is.null(nsim)){
-    nsim <- 100
-  }
+  params <- c("nsim", "nboot", "ntree", "perc.treshold", "mcmc", "burnin", "thinning", "ppcutoff", "py1", "py2", "pc1", "pc2", "t1", "scale", "start")
 
-  if(is.null(nboot)){
-    nboot <- 100
-  }
+  params.default <- c("100", "100", "0.1", "100000", "90000", '100', "100", "0.5", "0", '2', "0", "2", "2", "c(20, 10, 5)", "c(1, 0.5, 50)")
 
-  if(is.null(ntree)){
-    ntree <- 100
+
+  for (x in 1:length(params)){
+    is.null(get(params[x]))
+    assign(params[x], eval(parse(text=params.default[x])))
   }
 
   seq_length <- nchar(readLines(seq)[2])
@@ -79,7 +73,11 @@ P2C2M_GMYC.PPS <- function(tree.input,
 
   n.tips <- length(empirical.tree[[1]]$tip.label)
 
-    if (substr(readLines(seq)[1], 1, 1) == ">" & substr(readLines(seq)[3], 1, 1) == ">"){
+  if(is.null(t2)){
+    t2 <- n.tips
+  }
+
+  if (substr(readLines(seq)[1], 1, 1) == ">" & substr(readLines(seq)[3], 1, 1) == ">"){
     invisible()
   } else {
     stop("Sequence input must be a sequencial fasta file")
