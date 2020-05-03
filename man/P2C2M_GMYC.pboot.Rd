@@ -2,14 +2,15 @@
 % Please edit documentation in R/P2C2M_GMYC_pboot.R
 \name{P2C2M_GMYC.pboot}
 \alias{P2C2M_GMYC.pboot}
-\title{Parametric bootstrap}
+\title{Run P2C2M.GMYC - parametric bootstrap}
 \usage{
-  P2C2M_GMYC.pboot(tree.input, tree.format, seq, nsim = NULL, nboot = NULL, perc.treshold = NULL)
+  P2C2M_GMYC.pboot(tree.input, tree.format, seq, nsim = NULL,
+     nboot = NULL, perc.treshold = NULL)
 }
 \arguments{
   \item{tree.input}{A file name which contains an ultrametric phylogenetic tree.}
 
-  \item{tree.format}{A character string specifying the format of the phylogenetic tree. Two choices are possible: "nexus" or "newick"}
+  \item{tree.format}{A character string specifying the format of the phylogenetic tree. Two choices are possible: "nexus" or "newick".}
 
   \item{seq}{A file name which contains a sequential FASTA alignment}
 
@@ -26,15 +27,13 @@
   Identifying model violations under the Generalized Mixed Yule Coalescent (GMYC) model using parametric bootstrap.
 }
 \details{
-  DETAILS
+  This function take a ultrametric phylogenetic tree and a sequential FASTA alignment and test for model violation of the GMYC model using a parametric bootstrap framework.
 }
 \examples{
-  \dontrun{
-    P2C2M_GMYC.pboot(tree.input=system.file("extdata", "Lygodactylus.tre", package="P2C2M.GMYC"),
-                     tree.format="nexus",
-                     seq=system.file("extdata", "Lygodactylus.fas", package="P2C2M.GMYC"))
+## Lygodactylus dataset
+
+P2C2M_GMYC.pboot(tree.input=system.file("extdata", "Lygodactylus.tre", package="P2C2M.GMYC"),
+                 tree.format="nexus",
+                 seq=system.file("extdata", "Lygodactylus.fas", package="P2C2M.GMYC"))
   }
-}
-\seealso{
-  \code{\link[devtools]{remote-reexports}}
 }
