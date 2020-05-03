@@ -1,3 +1,25 @@
+#' @title FUNCTION_TITLE
+#' @description FUNCTION_DESCRIPTION
+#' @param tree.input PARAM_DESCRIPTION
+#' @param tree.format PARAM_DESCRIPTION
+#' @param seq PARAM_DESCRIPTION
+#' @param nsim PARAM_DESCRIPTION, Default: NULL
+#' @param nboot PARAM_DESCRIPTION, Default: NULL
+#' @param perc.treshold PARAM_DESCRIPTION, Default: NULL
+#' @return OUTPUT_DESCRIPTION
+#' @details DETAILS
+#' @examples
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @seealso
+#'  \code{\link[devtools]{remote-reexports}}
+#' @rdname P2C2M_GMYC.pboot
+#' @export
+#' @importFrom devtools install_github
+
 P2C2M_GMYC.pboot <- function(tree.input,
                              tree.format,
                              seq,
