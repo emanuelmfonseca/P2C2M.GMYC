@@ -16,11 +16,11 @@
 #' }
 #' @seealso
 #'  \code{\link[devtools]{remote-reexports}}
-#' @rdname P2C2M_GMYC.pboot
+#' @rdname P2C2M_GMYC.Pboot
 #' @export
 #' @importFrom devtools install_github
 
-P2C2M_GMYC.pboot <- function(tree.input,
+P2C2M_GMYC.Pboot <- function(tree.input,
                              tree.format,
                              seq,
                              nsim=NULL,
