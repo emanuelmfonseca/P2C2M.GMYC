@@ -62,4 +62,4 @@ This function take a ultrametric phylogenetic tree and a sequential FASTA alignm
 P2C2M_GMYC.PPS(tree.input=system.file("extdata", "Lygodactylus.trees", package="P2C2M.GMYC"),
                seq=system.file("extdata", "Lygodactylus.fas", package="P2C2M.GMYC"))
 }
-
+}
