@@ -1,3 +1,37 @@
+#' @title FUNCTION_TITLE
+#' @description FUNCTION_DESCRIPTION
+#' @param tree.input PARAM_DESCRIPTION
+#' @param seq PARAM_DESCRIPTION
+#' @param nsim PARAM_DESCRIPTION, Default: NULL
+#' @param nboot PARAM_DESCRIPTION, Default: NULL
+#' @param ntree PARAM_DESCRIPTION, Default: NULL
+#' @param perc.treshold PARAM_DESCRIPTION, Default: NULL
+#' @param mcmc PARAM_DESCRIPTION, Default: NULL
+#' @param burnin PARAM_DESCRIPTION, Default: NULL
+#' @param thinning PARAM_DESCRIPTION, Default: NULL
+#' @param py1 PARAM_DESCRIPTION, Default: NULL
+#' @param py2 PARAM_DESCRIPTION, Default: NULL
+#' @param pc1 PARAM_DESCRIPTION, Default: NULL
+#' @param pc2 PARAM_DESCRIPTION, Default: NULL
+#' @param t1 PARAM_DESCRIPTION, Default: NULL
+#' @param t2 PARAM_DESCRIPTION, Default: NULL
+#' @param scale PARAM_DESCRIPTION, Default: NULL
+#' @param start PARAM_DESCRIPTION, Default: NULL
+#' @param ppcutoff PARAM_DESCRIPTION, Default: NULL
+#' @return OUTPUT_DESCRIPTION
+#' @details DETAILS
+#' @examples
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @seealso
+#'  \code{\link[devtools]{remote-reexports}}
+#' @rdname P2C2M_GMYC.PPS
+#' @export
+#' @importFrom devtools install_github
+
 P2C2M_GMYC.PPS <- function(tree.input,
                            seq,
                            nsim=NULL,
