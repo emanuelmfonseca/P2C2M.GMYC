@@ -36,4 +36,4 @@ P2C2M_GMYC.Pboot(tree.input=system.file("extdata", "Lygodactylus.tre", package="
                  tree.format="nexus",
                  seq=system.file("extdata", "Lygodactylus.fas", package="P2C2M.GMYC"))
   }
-}
+}}
