@@ -56,9 +56,10 @@ Identifying model violations under the Generalized Mixed Yule Coalescent (GMYC) 
 \details{
 This function take a ultrametric phylogenetic tree and a sequential FASTA alignment and test for model violation of the GMYC model using posterior predictive simulations.
 }
+\examples{
 ## Lygodactylus dataset
 
 P2C2M_GMYC.PPS(tree.input=system.file("extdata", "Lygodactylus.trees", package="P2C2M.GMYC"),
                seq=system.file("extdata", "Lygodactylus.fas", package="P2C2M.GMYC"))
 }
-
+}
