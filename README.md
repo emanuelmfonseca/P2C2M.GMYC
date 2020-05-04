@@ -23,8 +23,7 @@ P2C2M automatically installs all the dependencies, but if you get errors, try to
 **install.packages("TreeSim")**  
 **install.packages("splits", repos="http://R-Forge.R-project.org", type="source")**  
 **install\_github("liamrevell/phytools")**  
-**install_github("bomeara/phybase")**  
-
+ 
 ## Example:
 
 To run the parametric bootstrap version of the P2C2M.GMYC, users need to provide an ultrametric phylogenetic tree and a sequential fasta alignment.
