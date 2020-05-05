@@ -35,7 +35,7 @@ We included *Lygodactylus* dataset in P2C2M.GMYC as an example. The *Lygodactylu
 ```{r}
 library(P2C2M.GMYC)
 
-P2C2M_GMYC.pboot(tree.input=system.file("extdata", "Lygodactylus.tre", package="P2C2M.GMYC"),
+P2C2M_GMYC.Pboot(tree.input=system.file("extdata", "Lygodactylus.tre", package="P2C2M.GMYC"),
                  tree.format="nexus",
                  seq=system.file("extdata", "Lygodactylus.fas", package="P2C2M.GMYC"))
 ```
