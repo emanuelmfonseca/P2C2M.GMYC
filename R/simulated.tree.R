@@ -29,6 +29,8 @@ GMYC.simulated.tree <- function(Yule.tree, Species.result, n.tips){
     sim$tip.label<-paste(rep(paste("Tip", Species.result[1,1], ".", sep=""), e=Species.result[1,2]), 1:Species.result[1,2], sep="")
     Grafted.tree <- sim
   }
+  ci <- sum(dist(coalescent.intervals(Grafted.tree)$interval.length))
+  cat(ci, file="/Users/emanuelfonseca/Desktop/P2C2M_low_popsize.txt", append=TRUE, sep = "\n")
 
   return (Grafted.tree)
 
